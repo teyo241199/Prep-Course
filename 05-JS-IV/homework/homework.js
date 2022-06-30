@@ -1,6 +1,6 @@
 // No cambies los nombres de las funciones.
 
-crearGato('Juan', 50)
+
 
 function crearGato (nombre, edad) {
   // Crear un nuevo objeto con la propiedad "nombre" y el valor definido como el argumento "nombre".
@@ -9,13 +9,15 @@ function crearGato (nombre, edad) {
   // Devuelve el objeto
   // Tu código:
 
-  const persona ={
-    nombre: 'Pedro',
-    edad:   30,
-    meow:   function(){ return 'meow!'}
+  const persona = {
+    nombre,
+    edad,
+    meow:   function(){ return nombre + " " + edad;}
   }
   return persona;
 }
+
+
 
 function agregarPropiedad (objeto, property) {
   // Agrega una propiedad al objeto (argumento "objeto") con el valor `null`
@@ -23,8 +25,8 @@ function agregarPropiedad (objeto, property) {
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
   // Tu código:
 
-  objeto.peru=property;
-  return objeto;
+  objeto[property] = null
+  return objeto
 }
 
 function invocarMetodo (objeto, metodo) {
@@ -32,15 +34,17 @@ function invocarMetodo (objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
-
-metodo.call(objeto);
+  
+  objeto.metodo()
 }
 
 function multiplicarNumeroDesconocidoPorCinco (objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
-return objetoMisterioso.numeroMisterioso.call(objetoMisterioso) * 5;
+  
+
+  return {...objetoMisterioso}.numeroMisterioso * 5
 }
 
 function eliminarPropiedad (objeto, unaPropiedad) {
